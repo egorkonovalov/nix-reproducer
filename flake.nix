@@ -29,7 +29,7 @@
             mkdir -p $out
             cp -r dist/. $out
             substitute $out/run.sh $out/bin/run-hello-test \
-                --replace-fail "./bin/hello-test" "$out/bin/hello-test"
+                --replace-fail "./bin/hello-test" "exec $out/bin/hello-test"
             chmod +x $out/bin/run-hello-test
           '';
           meta = {

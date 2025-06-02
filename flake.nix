@@ -28,15 +28,13 @@
           installPhase = ''
             mkdir -p $out
             cp -r dist/. $out
+            substitute $out/run.sh $out/bin/run-hello-test \
+                --replace-fail "./bin/hello-test" "$out/bin/hello-test"
+            chmod +x $out/bin/run-hello-test
           '';
-
-          postInstall = ''
-            wrapProgram $out/bin/hello-test $out/run.sh
-          '';
-
           meta = {
             description = "Hello world run via run.sh";
-            mainProgram = "run.sh";
+            mainProgram = "run-hello-test";
           };
         };
       in

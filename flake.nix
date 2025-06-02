@@ -31,7 +31,7 @@
           '';
 
           postInstall = ''
-            wrapProgram $out/bin/main $out/run.sh
+            wrapProgram $out/bin/hello-test $out/run.sh
           '';
 
           meta = {
